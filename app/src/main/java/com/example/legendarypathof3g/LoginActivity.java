@@ -19,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginEnter;
     private EditText loginUsername;
     private EditText loginPassword;
+    private Button registerTo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,9 @@ public class LoginActivity extends AppCompatActivity {
         loginEnter = findViewById(R.id.bu_login_enter);
         loginUsername = findViewById(R.id.et_login_name);
         loginPassword = findViewById(R.id.et_login_password);
+        registerTo = findViewById(R.id.bu_login_register);
         loginIn();
+        registerIn();
     }
 
     private void loginIn() {
@@ -36,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (ifSuccess()) {
                     Toast.makeText(LoginActivity.this, "登陆成功！", Toast.LENGTH_SHORT).show();
-                    enterPage();
+                    enterPage(MainActivity.class);
                 } else {
                     Toast.makeText(LoginActivity.this, "登陆失败！", Toast.LENGTH_SHORT).show();
                 }
@@ -44,15 +47,28 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void enterPage() {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+    private void registerIn() {
+        registerTo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enterPage(RegisterActivity.class);
+            }
+        });
+    }
+
+    private void enterPage(Class<?> activity) {
+        Intent intent = new Intent(this, activity);
         startActivity(intent);
+        finish();         //保证向下传递
     }
 
     private boolean ifSuccess() {
         String username = loginUsername.getText().toString();
-        String password = loginPassword.getText().toString();
-        if(username.equals("username")&&password.equals("2025124"))
+        String userPassword = loginPassword.getText().toString();
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("name");
+        String password = intent.getStringExtra("password");
+        if(username.equals(name)&& userPassword.equals(password))
             return true;
         else return false;
     }
