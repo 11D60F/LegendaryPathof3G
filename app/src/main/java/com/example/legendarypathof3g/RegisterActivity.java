@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String text_name = editText_name.getText().toString();
                 String text_password = editText_password.getText().toString();
                 String text_password_again = editText_password_again.getText().toString();
-                if(text_name.isEmpty() || text_password.isEmpty() || text_password_again.isEmpty()) {
+                if (text_name.isEmpty() || text_password.isEmpty() || text_password_again.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "存在空项！", Toast.LENGTH_SHORT).show();
                     return;
                 }

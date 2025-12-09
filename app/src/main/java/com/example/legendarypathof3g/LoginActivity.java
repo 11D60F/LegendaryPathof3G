@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         String password = intent.getStringExtra("password");
-        if(username.equals(name)&& userPassword.equals(password))
+        if (username.equals(name) && userPassword.equals(password))
             return true;
         else return false;
     }

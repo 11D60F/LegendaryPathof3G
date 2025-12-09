@@ -23,7 +23,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        app:layout_constraintWidth_percent="0.95"
         android:text="2005 年 10 月 9 日下午 2:30，重庆市人民政府新闻办公室在重庆市新闻发布中心举行了新闻发布
 会。会议郑重发布了 “世界第一颗 0.13 微米工艺的 TD-SCDMA 3G 手机核心芯片在重庆诞生” 这一
 令国人自豪和骄傲的重大喜讯。重庆市人民政府新闻办和重庆邮电学院在此间联合宣布：具有我国自
@@ -35,6 +34,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_niyou" />
+        app:layout_constraintTop_toBottomOf="@id/image_niyou"
+        app:layout_constraintWidth_percent="0.95" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
